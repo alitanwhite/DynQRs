@@ -70,6 +70,16 @@
         var url = document.location.href;
         var k = url.substr(url.lastIndexOf("k=")+2);
 
+        const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
+        
+        fetch(corsAnywhere + AS_URL_BASE, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/javascript',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        })
+
         if(k){
             fetch(AS_URL_BASE+'?k='+k)
             .then(r => r.text())
