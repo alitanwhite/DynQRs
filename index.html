@@ -65,34 +65,25 @@
 </head>
 <body>
     <script>
-        const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbzVW6Z72KHauaDKxzMNPsec03TpMd6329ZTCawXaXFb0hsylGMezwtGFeQlIFsH0ry3_A/exec";
-
-        var url = document.location.href;
-        var k = url.substr(url.lastIndexOf("k=")+2);
-
-        const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-        
-        fetch(corsAnywhere + AS_URL_BASE, {
-            method: 'GET',
-            headers: new Headers({
-                'Content-Type': 'application/javascript',
-                'Access-Control-Allow-Origin': '*',
-            }),
-        })
-
-        if(k){
-            fetch(AS_URL_BASE+'?k='+k)
-            .then(r => r.text())
-            .then((r) => {
-                console.log(r);
-                //document.write(r):
-                if(r){
-                    document.location.replace(r);
-                }
-            })
-            .catch(err => console.log(err))
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbx_a2e7ScGUfxrrdnwKP1kLFkzv2Yr_15j9TI0SzU2v5T2A5lxuG5tlTSIomLeAWvl0ig/exec";
+    
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
+    
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k)
+      .then(r => r.text())
+      .then((r) => {
+        console.log(r);
+        //document.write(r);
+        if(r){
+          document.location.replace(r);
         }
-    </script>
+      })
+      .catch(err => console.log(err))
+    }
+
+  </script>
     <div class="lds-ripple"><div></div><div></div></div>
 </body>
 </html>
