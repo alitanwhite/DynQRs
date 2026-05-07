@@ -65,24 +65,35 @@
 </head>
 <body>
     <script>
-    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbzt1x17V8i9OLVv94eZk0n2jLCnL3iZ4coU7OJOnSTD0lOwdUzpv2lb0Ev3PCa0Qmugfw/exec";
-    
-    var url = document.location.href;
-    var k = url.substr(url.lastIndexOf("k=")+2);
-    
-    if(k){
-      fetch(AS_URL_BASE+'?k='+k)
-      .then(r => r.text())
-      .then((r) => {
-        console.log(r);
-        //document.write(r);
-        if(r){
-          document.location.replace(r);
-        }
-      })
-      .catch(err => console.log(err))
-    }
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbw2kOeCaII23oXVLFrQVl4aTwOkLPsw6xoswd2B0PwkHvCgF4Vxd_Zi4o5RzYV3d6fvcw/exec";
 
+    fetch(AS_URL_BASE)
+  .then(response => {
+    if (response.redirected) {
+      // Browsers follow redirects automatically, but the new URL 
+      // must also support CORS. Apps Script handles this.
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(err => console.error('Fetch error:', err));
+    // var url = document.location.href;
+    // var k = url.substr(url.lastIndexOf("k=")+2);
+    
+    // if(k){
+    //   fetch(AS_URL_BASE+'?k='+k)
+    //   .then(r => r.text())
+    //   .then((r) => {
+    //     console.log(r);
+    //     //document.write(r);
+    //     if(r){
+    //       document.location.replace(r);
+    //     }
+    //   })
+    //   .catch(err => console.log(err))
+    // }
+
+        
   </script>
     <div class="lds-ripple"><div></div><div></div></div>
 </body>
