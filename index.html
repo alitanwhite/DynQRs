@@ -65,7 +65,7 @@
 </head>
 <body>
     <script>
-    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbw2kOeCaII23oXVLFrQVl4aTwOkLPsw6xoswd2B0PwkHvCgF4Vxd_Zi4o5RzYV3d6fvcw/exec";
+    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbxNBwtKvf28pCmuhtLW0GPSXcYHFoJTxzq_oTLdt39HYOIgEuyr5X-jAyEP-z8wzfWuqA/exec";
 
     fetch(AS_URL_BASE)
   .then(response => {
@@ -79,6 +79,9 @@
   .catch(err => console.error('Fetch error:', err));
     // var url = document.location.href;
     // var k = url.substr(url.lastIndexOf("k=")+2);
+
+        
+        document.location.replace(data)
     
     // if(k){
     //   fetch(AS_URL_BASE+'?k='+k)
